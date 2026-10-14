@@ -1,3 +1,3 @@
-import './globals.css';import {StoreProvider} from '@/components/StoreProvider';import Header from '@/components/Header';import PageTransition from '@/components/PageTransition';
+import './globals.css';import {StoreProvider} from '@/components/StoreProvider';import SiteChrome from '@/components/SiteChrome';
 export const metadata={title:'SEEKER — Beyond the Ordinary',description:'Premium editorial clothing and contemporary culture.',icons:{icon:'/logo/logo.png'}};
-export default function Layout({children}){return <html lang="en"><body><StoreProvider><Header/><PageTransition>{children}</PageTransition><footer className="footer"><div className="brand"><img className="brand-logo" src="/logo/logo.png" alt="SEEKER"/></div><p>ART. CULTURE. PEOPLE. CLOTHING.</p><p>© {new Date().getFullYear()} SEEKER — Concept fashion store</p></footer></StoreProvider></body></html>}
+export default function Layout({children}){return <html lang="en"><body><StoreProvider><SiteChrome>{children}</SiteChrome></StoreProvider></body></html>}
