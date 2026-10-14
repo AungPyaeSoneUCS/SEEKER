@@ -1,0 +1,5 @@
+ 'use client';import {createContext,useContext,useEffect,useState} from 'react';
+const Context=createContext(null);export const useStore=()=>useContext(Context);
+export function StoreProvider({children}){const [cart,setCart]=useState([]);const [ready,setReady]=useState(false);useEffect(()=>{try{setCart(JSON.parse(localStorage.getItem('seeker_cart')||'[]'))}catch{}setReady(true)},[]);useEffect(()=>{if(ready)localStorage.setItem('seeker_cart',JSON.stringify(cart))},[cart,ready]);
+const add=(product,size='M',color='Black')=>setCart(old=>{const key=product.id+':'+size+':'+color;const idx=old.findIndex(x=>x.key===key);if(idx>=0)return old.map((x,i)=>i===idx?{...x,qty:Math.min(x.qty+1,product.stock)}:x);return [...old,{key,id:product.id,name:product.name,image:product.image,size,color,qty:1}]});
+const qty=(key,n)=>setCart(old=>old.map(x=>x.key===key?{...x,qty:Math.max(1,n)}:x));const remove=key=>setCart(old=>old.filter(x=>x.key!==key));return <Context.Provider value={{cart,add,qty,remove,clear:()=>setCart([])}}>{children}</Context.Provider>}

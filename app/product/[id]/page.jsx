@@ -1,0 +1,2 @@
+import db from '@/lib/db';import ProductPurchase from '@/components/ProductPurchase';import {notFound} from 'next/navigation';export const dynamic='force-dynamic';
+export default async function Product({params}){const {id}=await params;const p=db.prepare('SELECT * FROM products WHERE id=? AND active=1').get(id);if(!p)notFound();return <main className="page"><div className="breadcrumb">SHOP / {p.category.toUpperCase()} / {p.name.toUpperCase()}</div><ProductPurchase p={p}/></main>}

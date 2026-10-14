@@ -1,0 +1,1 @@
+import {quote} from '@/lib/order';export const runtime='nodejs';export async function POST(req){try{const {code,items}=await req.json();const q=quote(items,code);return Response.json({coupon:q.coupon?{code:q.coupon.code,percent:q.coupon.percent}:null,discount:q.discount})}catch(e){return Response.json({error:e.message},{status:400})}}

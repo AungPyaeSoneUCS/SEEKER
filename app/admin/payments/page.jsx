@@ -1,0 +1,1 @@
+import PaymentAdmin from '@/components/PaymentAdmin';export default function Page(){return <PaymentAdmin/>}

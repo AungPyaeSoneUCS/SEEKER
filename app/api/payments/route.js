@@ -1,0 +1,1 @@
+import db from '@/lib/db';export const runtime='nodejs';export const dynamic='force-dynamic';export async function GET(){return Response.json(db.prepare('SELECT code,name,account_name,account_number,instructions,qr_image FROM payment_methods WHERE active=1 ORDER BY sort_order,id').all())}

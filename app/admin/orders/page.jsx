@@ -1,0 +1,1 @@
+import db from '@/lib/db';import OrderAdmin from '@/components/OrderAdmin';export const dynamic='force-dynamic';export default function Page(){return <><h1>ORDER MANAGEMENT</h1><p>Confirm payment manually and update order status.</p><OrderAdmin orders={db.prepare('SELECT * FROM orders ORDER BY id DESC').all()}/></>}

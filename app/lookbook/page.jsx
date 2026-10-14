@@ -1,0 +1,1 @@
+export default function Lookbook(){return <main className="page"><p className="eyebrow">STYLE IN REAL LIFE</p><h1 className="page-title">LOOKBOOK</h1><div className="lookbook">{['hero.jpg','product-hoodie.jpg','product-jacket.jpg','product-tee.jpg','product-pants.jpg','event.jpg'].map(i=><img src={'/images/'+i} alt="SEEKER editorial" key={i}/>)}</div></main>}
